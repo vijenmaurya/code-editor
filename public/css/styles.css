@@ -4,6 +4,8 @@
     --editor-width: var(--post-width);
     --editor-height: calc(var(--post-width) * 32 / 25);
     --post-background: #f8ee00;
+    --logo-width: calc(2rem * 32/32);
+    --logo-height: calc(2rem * 32/32);
 }
 
 body {
@@ -25,7 +27,28 @@ body {
     justify-content: center;
     align-items: center;
     background: var(--post-background);
-    padding: 3rem;
+    padding: 5rem;
+    position: relative;
+}
+
+.logo-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.logo {
+    width: var(--logo-width);
+    height: var(--logo-height);
+}
+
+.logo-text {
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 
 .code-editor {

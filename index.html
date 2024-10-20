@@ -40,6 +40,14 @@
 <body>
     <!-- Create Post -->
     <div class="outer-editor" id="editorContainer">
+        <span class="logo-div">
+            <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M4.5 6L5.25 5.25H18.75L19.5 6V18L18.75 18.75H5.25L4.5 18V6ZM6 6.75V17.25H18V6.75H6ZM10.1894 12L7.71973 9.5303L8.78039 8.46964L12.3107 12L8.78039 15.5303L7.71973 14.4696L10.1894 12ZM12 15.75H15.75V14.25H12V15.75Z"
+                    fill="#080341" />
+            </svg>
+            <span class="logo-text">pysnippet</span>
+        </span>
         <div class="code-editor" id="code-screen">
             <!-- Editor header with dots and controls -->
             <div class="editor-header">
@@ -96,7 +104,8 @@
 
             <!-- Select Color -->
             <li class="color-selector">
-                <label for="screen-background">Screen Background: <span id="screen-background-value">#f8ee00</span></label>
+                <label for="screen-background">Screen Background: <span
+                        id="screen-background-value">#f8ee00</span></label>
                 <input type="color" name="screen-background" id="screen-background" value="#f8ee00">
             </li>
         </ul>
@@ -125,9 +134,12 @@
                 </li>
             </ul>
         </div>
-        <svg onclick="openEditTheme()" id="settings-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="tomato" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg onclick="openEditTheme()" id="settings-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+            viewBox="0 0 24 24" fill="none" stroke="tomato" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
             <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.77 1.77 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.77 1.77 0 0 0-1.82-.33 1.77 1.77 0 0 0-1.11 1.61V20a2 2 0 0 1-4 0v-.09a1.77 1.77 0 0 0-1.11-1.61 1.77 1.77 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.77 1.77 0 0 0 5 15.4a1.77 1.77 0 0 0-1.61-1.11H3a2 2 0 0 1 0-4h.09a1.77 1.77 0 0 0 1.61-1.11 1.77 1.77 0 0 0-.33-1.82L4.31 6.4a2 2 0 1 1 2.83-2.83l.06.06A1.77 1.77 0 0 0 9 5a1.77 1.77 0 0 0 1.11-1.61V3a2 2 0 0 1 4 0v.09a1.77 1.77 0 0 0 1.11 1.61 1.77 1.77 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.77 1.77 0 0 0 19 9a1.77 1.77 0 0 0 1.61 1.11H21a2 2 0 0 1 0 4h-.09A1.77 1.77 0 0 0 19.4 15z">
+            <path
+                d="M19.4 15a1.77 1.77 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.77 1.77 0 0 0-1.82-.33 1.77 1.77 0 0 0-1.11 1.61V20a2 2 0 0 1-4 0v-.09a1.77 1.77 0 0 0-1.11-1.61 1.77 1.77 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.77 1.77 0 0 0 5 15.4a1.77 1.77 0 0 0-1.61-1.11H3a2 2 0 0 1 0-4h.09a1.77 1.77 0 0 0 1.61-1.11 1.77 1.77 0 0 0-.33-1.82L4.31 6.4a2 2 0 1 1 2.83-2.83l.06.06A1.77 1.77 0 0 0 9 5a1.77 1.77 0 0 0 1.11-1.61V3a2 2 0 0 1 4 0v.09a1.77 1.77 0 0 0 1.11 1.61 1.77 1.77 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.77 1.77 0 0 0 19 9a1.77 1.77 0 0 0 1.61 1.11H21a2 2 0 0 1 0 4h-.09A1.77 1.77 0 0 0 19.4 15z">
             </path>
         </svg>
     </div>
