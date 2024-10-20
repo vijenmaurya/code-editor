@@ -1,0 +1,303 @@
+:root {
+    --post-width: 20rem;
+    --post-radius: 0.6rem;
+    --editor-width: var(--post-width);
+    --editor-height: calc(var(--post-width) * 32 / 25);
+    --post-background: #f8ee00;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto Mono", monospace;
+    min-height: 100vh;
+}
+
+.outer-editor {
+    width: var(--post-width);
+    height: calc(var(--post-width) * 5 / 4);
+    border-radius: unset;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--post-background);
+    padding: 3rem;
+}
+
+.code-editor {
+    position: relative;
+    width: var(--editor-width);
+    margin: 0;
+    height: var(--editor-height);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+    border: 1px solid #444;
+    background-color: #000;
+    border-radius: var(--post-radius);
+}
+
+@media (max-width: 768px) {
+    .code-editor {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    .controls {
+        display: none;
+    }
+}
+
+.editor-header {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    height: 1.3rem;
+    background-color: #000000;
+    justify-content: space-between;
+    border-top-left-radius: var(--post-radius);
+    border-top-right-radius: var(--post-radius);
+}
+
+.editor-header .left {
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.dot.red {
+    background-color: #ff5f56;
+}
+
+.dot.yellow {
+    background-color: #ffbd2e;
+}
+
+.dot.green {
+    background-color: #27c93f;
+}
+
+.CodeMirror {
+    height: calc(100% - 2.1rem);
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+    font-family: "Roboto Mono", monospace;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    border-bottom-left-radius: var(--post-radius);
+    border-bottom-right-radius: var(--post-radius);
+}
+
+.CodeMirror pre.CodeMirror-line {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.CodeMirror-hscrollbar {
+    overflow-x: hidden;
+}
+
+.CodeMirror-scrollbar-filler {
+    display: none !important;
+}
+
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    /* Align controls to the right */
+    gap: 10px;
+    /* Space between controls */
+}
+
+.format-button {
+    padding: 10px 20px;
+    background-color: #6272a4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.language-select {
+    background: tomato;
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0.4rem .5rem;
+    border-radius: 0.6rem;
+    font-size: 0.8rem;
+    border: 1px solid;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.language-select option {
+    color: #000000;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.language-select:focus {
+    outline: 0;
+}
+
+.download-button {
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.format-code {
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 2px;
+    border: 1px solid #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CodeMirror-scroll {
+    cursor: text;
+}
+
+.resize-handle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #666;
+    /* Color of the resize handle */
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+    /* Resize cursor */
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+.outer-editor ::-webkit-scrollbar-track {
+    background-color: #000000;
+}
+
+.screen-selector ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    row-gap: 0.5rem;
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    align-items: flex-end;
+}
+
+.screen-selector ul li a {
+    background: tomato;
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 0.4rem .5rem;
+    border-radius: 0.6rem;
+    font-size: 0.8rem;
+}
+
+.fixed-editor-options {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.language-name {
+    text-transform: uppercase;
+    color: var(--post-background);
+    letter-spacing: 0;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.position-top {
+    position: absolute;
+    top: 2rem;
+    right: 0rem;
+}
+
+.fixed-editor-options svg {
+    cursor: pointer;
+}
+
+.fixed-editor-options ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.fixed-editor-options input {
+    width: 100%;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.text-editor {
+    padding: 10px;
+    width: var(--editor-width);
+    max-height: calc(var(--post-width) * 5 / 4);
+    padding: 0.4rem 0.6rem;
+    outline: none;
+    overflow: hidden;
+}
+
+.text-editor:focus {
+    border: 1.5px solid #000000;
+    border-radius: var(--post-radius);
+}
+
+[contenteditable] {
+    outline: 0px solid transparent;
+}

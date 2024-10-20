@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Code Editor</title>
+
+    <!-- CodeMirror CSS and JS -->
+    <link rel="stylesheet" href="./public/css/codemirror.min.css">
+    <link rel="stylesheet" href="./public/css/material-darker.min.css">
+
+    <!-- CodeMirror Modes -->
+    <script src="./public/js/codemirror.min.js"></script>
+    <script src="./public/js/javascript.min.js"></script>
+    <script src="./public/js/htmlmixed.min.js"></script>
+    <script src="./public/js/css.min.js"></script>
+    <script src="./public/js/python.min.js"></script>
+    <script src="./public/js/php.min.js"></script>
+
+    <!-- CodeMirror Addons -->
+    <script src="./public/js/show-hint.min.js"></script>
+    <link rel="stylesheet" href="./public/css/show-hint.min.css">
+    <script src="./public/js/javascript-hint.min.js"></script>
+
+    <!-- CodeMirror Addon for Auto-closing brackets and quotes -->
+    <script src="./public/js/closebrackets.min.js"></script>
+
+    <!-- html2canvas for capturing the editor -->
+    <script src="./public/js/html2canvas.min.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./public/css/styles.css">
+</head>
+
+<body>
+    <!-- Create Post -->
+    <div class="outer-editor" id="editorContainer">
+        <div class="code-editor" id="code-screen">
+            <!-- Editor header with dots and controls -->
+            <div class="editor-header">
+                <div class="left">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+
+                <div class="controls">
+                    <span class="language-name" id="language-name">Python</span>
+                    <!-- <button class="download-button" onclick="downloadAsImage()">
+                        <svg viewBox="0 0 24 24" width="20px" height="20px" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="m8 12 4 4 4-4" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path d="M12 16V4M19 17v.6c0 1.33-1.07 2.4-2.4 2.4H7.4C6.07 20 5 18.93 5 17.6V17"
+                                    stroke="#ffffff" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round">
+                                </path>
+                            </g>
+                        </svg>
+                    </button>
+
+                    <button class="format-code" onclick="formatCode()">
+                        <svg viewBox="0 0 24 24" width="20px" height="20px" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path d="M4 4H20M4 12H20M4 20H20M4 8H14M4 16H14" stroke="#ffffff" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                        </svg>
+                    </button> -->
+                </div>
+            </div>
+
+            <!-- CodeMirror editor (replaces textarea) -->
+            <textarea id="codeEditor" placeholder="/* Select a language and type your code here */"></textarea>
+        </div>
+        <div class="text-editor" id="text-screen" contenteditable="true"></div>
+    </div>
+
+    <div class="fixed-editor-options">
+        <ul id="fixed-editor-options" style="display: none;">
+            <!-- Select Dimension -->
+            <li class="dimension-selector">
+                <label for="screen-width">Screen Width: <span id="screen-width-value">20</span>rem</label>
+                <input type="range" name="screen-width" id="screen-width" min="10" max="50" value="20">
+            </li>
+
+            <!-- Select Color -->
+            <li class="color-selector">
+                <label for="screen-background">Screen Background: <span id="screen-background-value">#f8ee00</span></label>
+                <input type="color" name="screen-background" id="screen-background" value="#f8ee00">
+            </li>
+        </ul>
+        <div class="screen-selector" id="screen-selector" style="display: flex;">
+            <ul>
+                <li class="position-top" id="language-select">
+                    <select id="language-selector" class="language-select">
+                        <option value="python">Python</option>
+                        <option value="javascript">Javascript</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="php">PHP</option>
+                    </select>
+                </li>
+                <li id="download-image">
+                    <a href="javascript:void(0);" onclick="downloadAsImage()">Download Image</a>
+                </li>
+                <li id="format-code">
+                    <a href="javascript:void(0);" onclick="formatCode()">Format Code</a>
+                </li>
+                <li>
+                    <a href="/?screen=text-screen">Content</a>
+                </li>
+                <li>
+                    <a href="/?screen=code-screen">Code</a>
+                </li>
+            </ul>
+        </div>
+        <svg onclick="openEditTheme()" id="settings-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="tomato" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.77 1.77 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.77 1.77 0 0 0-1.82-.33 1.77 1.77 0 0 0-1.11 1.61V20a2 2 0 0 1-4 0v-.09a1.77 1.77 0 0 0-1.11-1.61 1.77 1.77 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.77 1.77 0 0 0 5 15.4a1.77 1.77 0 0 0-1.61-1.11H3a2 2 0 0 1 0-4h.09a1.77 1.77 0 0 0 1.61-1.11 1.77 1.77 0 0 0-.33-1.82L4.31 6.4a2 2 0 1 1 2.83-2.83l.06.06A1.77 1.77 0 0 0 9 5a1.77 1.77 0 0 0 1.11-1.61V3a2 2 0 0 1 4 0v.09a1.77 1.77 0 0 0 1.11 1.61 1.77 1.77 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.77 1.77 0 0 0 19 9a1.77 1.77 0 0 0 1.61 1.11H21a2 2 0 0 1 0 4h-.09A1.77 1.77 0 0 0 19.4 15z">
+            </path>
+        </svg>
+    </div>
+</body>
+<script src="./public/js/editor.js"></script>
+<script src="./public/js/format-code.js"></script>
+<script src="./public/js/download-image.js"></script>
+<script src="./public/js/screen.js"></script>
+
+</html>
