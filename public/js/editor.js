@@ -1,5 +1,5 @@
 // Initialize CodeMirror editor with default mode (JavaScript) and auto-close brackets
-var editor = CodeMirror.fromTextArea(document.getElementById('codeEditor'), {
+var editor = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
     mode: "javascript",
     theme: "material-darker",
     lineNumbers: true,
