@@ -27,8 +27,12 @@ body {
     justify-content: center;
     align-items: center;
     background: var(--post-background);
-    padding: 5rem;
+    padding: 2rem 2rem;
     position: relative;
+}
+
+.outer-editor.code {
+    padding: 4rem;
 }
 
 .logo-div {

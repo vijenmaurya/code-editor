@@ -7,6 +7,7 @@ const screenParam = urlParams.get('screen', 'code-screen');
 
 // Function to show/hide the correct screen based on query parameter
 function showEditorScreen(screen) {
+    const outerEditorDiv = document.getElementById('editorContainer');
     const codeEditorDiv = document.getElementById('code-screen');
     const textEditorDiv = document.getElementById('text-screen');
     const languageEditorDiv = document.getElementById('language-select');
@@ -17,11 +18,13 @@ function showEditorScreen(screen) {
         languageEditorDiv.style.display = 'block';
         formatEditorDiv.style.display = 'block';
         textEditorDiv.style.display = 'none';
+        outerEditorDiv.classList.add('code');
     } else if (screen === 'text-screen') {
         codeEditorDiv.style.display = 'none';
         languageEditorDiv.style.display = 'none';
         formatEditorDiv.style.display = 'none';
         textEditorDiv.style.display = 'block';
+        outerEditorDiv.classList.add('text');
     } else {
         // Default behavior if no valid query param is present
         codeEditorDiv.style.display = 'none';
