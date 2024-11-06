@@ -146,3 +146,15 @@ function placeCaretAtEnd(el) {
     selection.removeAllRanges();
     selection.addRange(range);
 }
+
+// Link
+var baseUrl = window.location.origin;
+
+// Find all links with the class 'dynamic-link'
+var links = document.querySelectorAll('.dynamic-link');
+
+// Loop through each link and set the href dynamically
+links.forEach(function(link) {
+    var path = link.getAttribute('data-path'); // Get the relative path from the data attribute
+    link.setAttribute('href', baseUrl + path); // Set the full URL
+});
