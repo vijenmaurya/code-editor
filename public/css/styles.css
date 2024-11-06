@@ -133,10 +133,15 @@ body {
 }
 
 .CodeMirror pre.CodeMirror-line {
-    font-family: "Roboto Mono", monospace;
+    font-family: 'Courier New', monospace;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+}
+
+.CodeMirror .CodeMirror-linenumber {
+    font-family: 'Courier New', monospace;
+    color: var(--post-background);
 }
 
 .CodeMirror-hscrollbar {

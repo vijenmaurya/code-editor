@@ -25,6 +25,7 @@ function showEditorScreen(screen) {
         formatEditorDiv.style.display = 'none';
         textEditorDiv.style.display = 'block';
         outerEditorDiv.classList.add('text');
+        editorTextLoad();
     } else {
         // Default behavior if no valid query param is present
         codeEditorDiv.style.display = 'none';
@@ -78,6 +79,16 @@ function openEditTheme() {
         editorOptions.style.display = 'flex';
         selectorOptions.style.display = 'none';
     }
+}
+
+function editorTextLoad() {
+    const editor = document.getElementById('text-screen');
+    editor.addEventListener('blur', function() {
+        console.log('Focus lost from content-editable div');
+    });
+
+    editor.focus();  
+    placeCaretAtEnd(editor);
 }
 
 window.onload = function() {
@@ -146,15 +157,3 @@ function placeCaretAtEnd(el) {
     selection.removeAllRanges();
     selection.addRange(range);
 }
-
-// Link
-var baseUrl = window.location.origin;
-
-// Find all links with the class 'dynamic-link'
-var links = document.querySelectorAll('.dynamic-link');
-
-// Loop through each link and set the href dynamically
-links.forEach(function(link) {
-    var path = link.getAttribute('data-path'); // Get the relative path from the data attribute
-    link.setAttribute('href', baseUrl + path); // Set the full URL
-});
