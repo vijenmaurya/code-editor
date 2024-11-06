@@ -4,7 +4,7 @@ function downloadAsImage() {
 
     // Use html2canvas to capture the editor container
     html2canvas(editorContainer, {
-        scale: 3, // Increase scale for higher quality image
+        scale: 16, // Increase scale for higher quality image
         backgroundColor: '#000000' // Set to match editor background
     }).then(function (canvas) {
         // Create a link element to trigger the download
