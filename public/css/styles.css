@@ -2,8 +2,9 @@
     --post-width: 20rem;
     --post-radius: 0.6rem;
     --editor-width: var(--post-width);
-    --editor-height: calc(var(--post-width) * 32 / 25);
-    --post-background: #f8ee00;
+    --editor-height: calc(var(--post-width) * 5 / 4);
+    --post-background: #F8EE00;
+    --post-text-color: #000000;
     --logo-width: calc(2rem * 32/32);
     --logo-height: calc(2rem * 32/32);
 }
@@ -27,12 +28,8 @@ body {
     justify-content: center;
     align-items: center;
     background: var(--post-background);
-    padding: 2rem 2rem;
+    padding: 3rem 3rem;
     position: relative;
-}
-
-.outer-editor.code {
-    padding: 4rem;
 }
 
 .logo-div {
@@ -323,6 +320,7 @@ label {
 }
 
 .text-editor {
+    color: var(--post-text-color);
     padding: 10px;
     width: var(--editor-width);
     max-height: calc(var(--post-width) * 5 / 4);

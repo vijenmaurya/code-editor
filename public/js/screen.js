@@ -3,10 +3,14 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
 // Get the 'screen' parameter
-const screenParam = urlParams.get('screen', 'code-screen');
+const screenParam = urlParams.get('screen', 'text-screen');
 
 // Function to show/hide the correct screen based on query parameter
 function showEditorScreen(screen) {
+    if(screen !== 'text-screen' && screen !== 'code-screen') {
+        screen = 'text-screen';
+    }
+
     const outerEditorDiv = document.getElementById('editorContainer');
     const codeEditorDiv = document.getElementById('code-screen');
     const textEditorDiv = document.getElementById('text-screen');
@@ -34,6 +38,10 @@ function showEditorScreen(screen) {
         formatEditorDiv.style.display = 'none';
         console.log('No valid screen parameter found.');
     }
+
+    let currentUrl = new URL(window.location.href);
+    currentUrl.searchParams.set('screen', screen);
+    window.history.pushState({}, '', currentUrl);
 }
 
 // Call the function with the screen parameter from the URL
@@ -83,25 +91,25 @@ function openEditTheme() {
 
 function editorTextLoad() {
     const editor = document.getElementById('text-screen');
-    editor.addEventListener('blur', function() {
+    editor.addEventListener('blur', function () {
         console.log('Focus lost from content-editable div');
     });
 
-    editor.focus();  
+    editor.focus();
     placeCaretAtEnd(editor);
 }
 
-window.onload = function() {
+window.onload = function () {
     const editor = document.getElementById('text-screen');
-    editor.addEventListener('blur', function() {
+    editor.addEventListener('blur', function () {
         console.log('Focus lost from content-editable div');
     });
 
-    editor.focus();  
+    editor.focus();
     placeCaretAtEnd(editor);
 
     // Add keyboard shortcuts for text formatting
-    editor.addEventListener('keydown', function(event) {
+    editor.addEventListener('keydown', function (event) {
         if (event.ctrlKey || event.metaKey) {
             if (event.key === 'b') { // Bold
                 event.preventDefault();

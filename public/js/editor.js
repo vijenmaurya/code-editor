@@ -53,3 +53,11 @@ document.addEventListener('DOMContentLoaded', function () {
         setEditorMode(this.value);
     });
 });
+
+
+var ce = document.querySelector('[contenteditable]')
+ce.addEventListener('paste', function (e) {
+    e.preventDefault()
+    var text = e.clipboardData.getData('text/plain')
+    document.execCommand('insertText', false, text)
+})
