@@ -124,20 +124,20 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    font-family: 'Courier New', monospace;
+    font-family: "Roboto Mono", monospace;
     transform: none;
     line-height: 1.4;
 }
 
 .CodeMirror pre.CodeMirror-line {
-    font-family: 'Courier New', monospace;
+    font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
 }
 
 .CodeMirror .CodeMirror-linenumber {
-    font-family: 'Courier New', monospace;
+    font-family: "Roboto Mono", monospace;
     color: var(--post-background);
 }
 
@@ -329,7 +329,7 @@ label {
     overflow: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto Mono", monospace;
     text-rendering: geometricPrecision;
     letter-spacing: 0.5px;
     word-spacing: 1px;
