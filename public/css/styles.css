@@ -34,12 +34,14 @@ body {
 
 .logo-div {
     position: absolute;
-    top: 0;
-    left: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     padding: 0.5rem;
+    opacity: 0.1;
+    transform: translate(0%, -50%) rotate(-45deg);
+    pointer-events: none;
 }
 
 .logo {
